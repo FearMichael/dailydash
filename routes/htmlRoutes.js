@@ -1,6 +1,7 @@
 var db = require("../models");
 
-module.exports = function(app) {
+//HTML routes 
+
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
@@ -24,4 +25,7 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
-};
+
+//Export the routes object
+
+module.exports = routes;
