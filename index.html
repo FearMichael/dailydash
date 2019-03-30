@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>DailyDash</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="../project2/style.css" rel="stylesheet">
@@ -12,52 +12,52 @@
 
 <body>
 <!--Navigation-->
-<nav class="navbar navbar-expand-md navbar-light bg-primary sticky-top">
-<div class="container-fluid">
-<a class="navbar-brand" href="#"><img src=""></a>
-<h5>Daily Dash</h5>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-    <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Sign Up</a>
-        </li>
-    </ul>
+<div class="pos-f-t">
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">DailyDash</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h3 class="text-white h4">User Login</h3>
+        <span class="text-muted">Don't have an account? Sign Up Here.</span>
+      </div>
+    </div>
 </div>
-</div>
-</nav>
+<!--End Navigation-->
+
 
 <!--Card Row 1-->
+<div class="row">
 <div class="card-group">
         <div class="card">
-          <img src="..." class="card-img-top" alt="...">
+          <img src="../project2/images/weather.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Weather</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
           </div>
         </div>
+
         <div class="card">
-          <img src="..." class="card-img-top" alt="...">
+          <img src="../project2/images/news.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">News</h5>
             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
           </div>
         </div>
+
         <div class="card">
-          <img src="..." class="card-img-top" alt="...">
+          <img src="../project2/images/stocks.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Stocks</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
           </div>
           <div class="card-footer">
@@ -65,9 +65,49 @@
           </div>
         </div>
 </div>
+</div>
+<!--Card Row 1 End-->
+
+<!--Card Row 2-->
+<div class="row">
+    <div class="card-group">
+        <div class="card">
+            <img src="../project2/images/calendar.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Calendar</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+  
+          <div class="card">
+            <img src="../project2/images/tast_list.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Task List</h5>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+
+          <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Stocks</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+          </div>
+  </div>
+  </div>
+<!--Card Row 2 End-->
 
 <!--Footer-->
-
 <footer>
 <div class="container-fluid">
 <div class="row text-center">
@@ -78,6 +118,7 @@
 </div>
 </div>
 </footer>
+<!--Footer End-->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
