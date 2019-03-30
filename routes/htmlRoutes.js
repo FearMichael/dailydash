@@ -5,10 +5,7 @@ const routes = require("express").Router();
 
 // Load index page
 routes.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-        res.render("index", { examples: dbExamples }
-        );
-    });
+    res.render("index", {});
 });
 
 // Load example page and pass in an example by id
