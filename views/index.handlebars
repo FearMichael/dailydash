@@ -1,33 +1,107 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+<!--Navigation-->
+<div class="pos-f-t">
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">DailyDash</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h5 class="text-white">Login</h5>
+        <span class="text-muted">Don't have an account? Sign Up Here.</span>
       </div>
     </div>
-  </div>
 </div>
+<!--End Navigation-->
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<!--Card Row 1-->
+<div class="row">
+<div class="card-group">
+        <div class="card">
+          <img src="../project2/images/weather.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Weather</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../project2/images/news.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">News</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../project2/images/stocks.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Stocks</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+</div>
+</div>
+<!--Card Row 1 End-->
+
+<!--Card Row 2-->
+<div class="row">
+    <div class="card-group">
+        <div class="card">
+            <img src="../project2/images/calendar.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Calendar</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+  
+          <div class="card">
+            <img src="../project2/images/tast_list.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Task List</h5>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+
+          <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">About DailyDash</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+          </div>
+  </div>
+  </div>
+<!--Card Row 2 End-->
+
+<!--Footer-->
+<footer>
+<div class="container-fluid">
+<div class="row text-center">
+<div class="col-12">
+    <hr class="light-100">
+    <h6>&COPY; 2019 DAILYDASH, INC. ALL RIGHTS RESERVED.</h6>
+</div>
+</div>
+</div>
+</footer>
+<!--Footer End-->
