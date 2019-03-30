@@ -1,14 +1,14 @@
 const db = require("../models");
 const routes = require("express").Router();
 
-//HTML routes 
+//HTML routes
 
 // Load index page
 routes.get("/", function(req, res) {
-  db.Example.findAll({}).then(function(dbExamples) {
-    res.render("index", { examples: dbExamples }
-    );
-  });
+    db.Example.findAll({}).then(function(dbExamples) {
+        res.render("index", { examples: dbExamples }
+        );
+    });
 });
 
 // Load example page and pass in an example by id
@@ -22,7 +22,7 @@ routes.get("/", function(req, res) {
 
 // Render 404 page for any unmatched routes
 routes.get("*", function(req, res) {
-  res.render("404");
+    res.render("404");
 });
 
 //Export the routes object
