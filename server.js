@@ -1,8 +1,10 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-const routes = require("/routes");
-
+const htmlRoutes = require("./routes/htmlRoutes");
+const apiRoutes = require("./routes/apiRoutes");
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 var db = require("./models");
 
 var app = express();
@@ -16,9 +18,23 @@ app.use(express.static("public"));
 // Handlebars
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
-  
 // Routes
-app.use("/", routes);
+app.use("/", htmlRoutes);
+app.use("/", apiRoutes);
+
+//Authentication from PassportJS
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.AUTHID,
+    clientSecret: process.env.AUTHSECRET,
+    callbackURL: "https://dailydashboardproject2.herokuapp.com/"
+},
+function(accessToken, refreshToken, profile, done) {
+    URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
+        return done(err, user);
+    });
+}
+));
 
 // var syncOptions = { force: false };
 

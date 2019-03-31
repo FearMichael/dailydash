@@ -1,5 +1,7 @@
 const db = require("../models");
 const routes = require("express").Router();
+
+
 //Routes object
 
 // Get all examples
@@ -22,5 +24,16 @@ routes.delete("/api/examples/:id", function(req, res) {
         res.json(dbExample);
     });
 });
+
+//Authentication
+app.get("/auth/google",
+    passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"] }));
+
+app.get("/auth/google/callback",
+    passport.authenticate("google", { failureRedirect: "/login" }),
+    function(req, res) {
+        res.redirect("/");
+    });
+
 
 module.exports = routes;
