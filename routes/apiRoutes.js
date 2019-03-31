@@ -1,6 +1,8 @@
+require("dotenv").config({path: "../env"});
 const db = require("../models");
 const routes = require("express").Router();
-
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 //Routes object
 
@@ -26,14 +28,25 @@ routes.delete("/api/examples/:id", function(req, res) {
 });
 
 //Authentication
-app.get("/auth/google",
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_ID,
+    callbackURL: "https://dailydashboardproject2.herokuapp.com/"
+},
+function(accessToken, refreshToken, profile, done) {
+    URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
+        return done(err, user);
+    });
+}
+));
+
+routes.get("/auth/google",
     passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"] }));
 
-app.get("/auth/google/callback",
+routes.get("/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/login" }),
     function(req, res) {
         res.redirect("/");
     });
-
 
 module.exports = routes;
