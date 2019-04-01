@@ -31,7 +31,7 @@ routes.delete("/api/examples/:id", function(req, res) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_ID,
-    callbackURL: "https://dailydashboardproject2.herokuapp.com/"
+    callbackURL: "http://localhost:3000/authenticate"
 },
 function(accessToken, refreshToken, profile, done) {
     URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
@@ -44,9 +44,14 @@ routes.get("/auth/google",
     passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"] }));
 
 routes.get("/auth/google/callback",
-    passport.authenticate("google", { failureRedirect: "/login" }),
+    passport.authenticate("google", { failureRedirect: "/" }),
     function(req, res) {
-        res.redirect("/");
+        res.redirect("/authenticate");
     });
+
+routes.get("/authenticate", function(req, res) {
+    console.log(req.user);
+    res.redirect("/");
+});
 
 module.exports = routes;
