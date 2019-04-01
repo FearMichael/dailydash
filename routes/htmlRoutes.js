@@ -18,9 +18,9 @@ routes.get("/", function(req, res) {
 // });
 
 // Render 404 page for any unmatched routes
-routes.get("*", function(req, res) {
-    res.render("404");
-});
+// routes.get("*", function(req, res) {
+//     res.render("404");
+// });
 
 //Export the routes object
 

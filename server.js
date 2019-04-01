@@ -3,7 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 const htmlRoutes = require("./routes/htmlRoutes");
 const apiRoutes = require("./routes/apiRoutes");
-var db = require("./models");
+// var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -44,4 +44,4 @@ app.listen(PORT, function() {
     console.log(process.env.GOOGLE_CLIENT_ID);
 });
 
-// module.exports = app;
+module.exports = app;
