@@ -28,17 +28,17 @@ routes.delete("/api/examples/:id", function(req, res) {
 });
 
 //Authentication
-passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_ID,
-    callbackURL: "http://localhost:3000/authenticate"
-},
-function(accessToken, refreshToken, profile, done) {
-    URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
-        return done(err, user);
-    });
-}
-));
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.GOOGLE_CLIENT_ID,
+//     clientSecret: process.env.GOOGLE_CLIENT_ID,
+//     callbackURL: "http://localhost:3000/authenticate"
+// },
+// function(accessToken, refreshToken, profile, done) {
+//     URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
+//         return done(err, user);
+//     });
+// }
+// ));
 
 routes.get("/auth/google",
     passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"] }));
