@@ -20,6 +20,12 @@ routes.post("/api/examples", function(req, res) {
     });
 });
 
+// Create a new example1
+routes.post("/api/news", function(req, res) {
+    console.log(req.body);
+    res.send("done");
+});
+
 // Delete an example by id
 routes.delete("/api/examples/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
@@ -28,17 +34,17 @@ routes.delete("/api/examples/:id", function(req, res) {
 });
 
 //Authentication
-passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_ID,
-    callbackURL: "https://dailydashboardproject2.herokuapp.com/"
-},
-function(accessToken, refreshToken, profile, done) {
-    URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
-        return done(err, user);
-    });
-}
-));
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.GOOGLE_CLIENT_ID,
+//     clientSecret: process.env.GOOGLE_CLIENT_ID,
+//     callbackURL: "https://dailydashboardproject2.herokuapp.com/"
+// },
+// function(accessToken, refreshToken, profile, done) {
+//     URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
+//         return done(err, user);
+//     });
+// }
+// ));
 
 routes.get("/auth/google",
     passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"] }));
