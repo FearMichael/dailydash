@@ -8,24 +8,3 @@ footer {
 footer a {
     color: #eeeeee;
 }
-hr.light-100 {
-    border-top: 1px solid #eeeeee;
-    width: 100%;
-    margin-top: .8rem;
-    margin-bottom: 1rem;
-}
-hr.light {
-    border-top: 1px solid #eeeeee;
-    width: 75%;
-    margin-top: .8rem;
-    margin-bottom: 1rem;
-}
-.display-4 {
-    font-size: 300%;
-}
-input {
-    padding: 1px 8px;
-}
-button i{
-    padding: 2% 5px;
-}
