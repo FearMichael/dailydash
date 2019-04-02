@@ -39,7 +39,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 app.use("/", htmlRoutes);
-app.use("/", apiRoutes);
+app.use("/api", apiRoutes);
 
 // var syncOptions = { force: false };
 

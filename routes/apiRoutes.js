@@ -33,8 +33,12 @@ routes.get("/news", function(req, res) {
     let newsSearch = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS}`;
     axios.get(newsSearch).then(function(newsInfo) {
         news = newsInfo;
-        console.log(news);
-        res.json(news.data);
+        
+        res.json(news.data.articles);
+        // console.log("Source: " + news.data.articles.source.name);
+        for (var i = 0; i < news.data.articles.length; i++);
+            console.log("Title: " + news.data.articles[i].title);
+            console.log("URL: " + news.data.articles[i].url);
     });
     // const news = await apiCalls.news();
     // apiCalls.news().then(news => {
