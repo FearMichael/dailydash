@@ -15,7 +15,7 @@ const apiCall = {
         });
     },
 
-    news: () => {
+    news: async () => {
         let newsSearch = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS}`;
         axios.get(newsSearch).then(function(newsInfo) {
             return newsInfo;
