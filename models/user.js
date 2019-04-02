@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    return User = sequelize.define("Example", {
+    const User = sequelize.define("User", {
         name: DataTypes.STRING,
         email: DataTypes.TEXT,
         weatherPos: {
@@ -23,4 +23,10 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: null
         }
     });
+    User.associate = function(models) {
+        User.hasMany(models.Task, {
+            onDelete: "cascade"
+        });
+    };
+    return User;
 };

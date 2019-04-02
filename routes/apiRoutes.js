@@ -28,28 +28,24 @@ const axios = require("axios");
 //     });
 // });
 
-routes.get("/news", function(req, res) {
-    let news;
-    let newsSearch = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS}`;
-    axios.get(newsSearch).then(function(newsInfo) {
-        news = newsInfo;
-        console.log(news);
-        res.json(news.data);
-    });
-    // const news = await apiCalls.news();
-    // apiCalls.news().then(news => {
-    //     console.log(news);
-    //     res.json(news);
-    // });
-    // res.json(news);
-    // console.log(news);
-    // res.send(news);
+//NEWS API
+
+routes.get("/news", async function(req, res) {
+    const news = await apiCalls.news();
+    res.json(news);
+});
+
+//WEATHER API
+
+routes.get("/weather/:zip", async function(req, res) {
+    const weather = await apiCalls.weather(req.params.zip);
+    res.json(weather);
 });
 
 //Authentication
 
 routes.get("/auth/google",
-    passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"], session: false }));
+    passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"] }));
 
 // routes.get("/authenticate",
 //     // passport.authenticate("google", { failureRedirect: "/" }),
@@ -59,9 +55,9 @@ routes.get("/auth/google",
 //         // res.redirect("/authenticate");
 //     });
 
-routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/" }), function(req, res) {
-    console.log(req.body);
-    console.log(req.user);
+routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/", session: false }), function(req, res) {
+    console.log(`Body ${req.body}`);
+    console.log(`User ${req.user}`);
     res.redirect("/");
 });
 
