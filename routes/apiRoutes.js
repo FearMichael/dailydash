@@ -28,7 +28,7 @@ const axios = require("axios");
 //     });
 // });
 
-routes.get("/news", function(req, res) {
+routes.get("/news", async function(req, res) {
     let news;
     let newsSearch = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS}`;
     axios.get(newsSearch).then(function(newsInfo) {
@@ -36,10 +36,10 @@ routes.get("/news", function(req, res) {
         console.log(news);
         res.json(news.data);
     });
-    // const news = await apiCalls.news();
+    // const news = await apiCalls.news().then(news => {res.json(news.data)});
     // apiCalls.news().then(news => {
-    //     console.log(news);
-    //     res.json(news);
+    //     console.log(news.data);
+    //     res.json(news.data);
     // });
     // res.json(news);
     // console.log(news);
