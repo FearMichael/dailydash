@@ -47,6 +47,7 @@ routes.get("/news", function(req, res) {
 });
 
 //Authentication
+
 routes.get("/auth/google",
     passport.authenticate("google", { scope: ["https://www.googleapis.com/auth/plus.login"], session: false }));
 
