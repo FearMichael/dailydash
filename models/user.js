@@ -1,6 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-    return User = sequelize.define("Example", {
-        name: DataTypes.STRING,
+    const User = sequelize.define("User", {
+        authId: {
+            type: DataTypes.STRING,
+            defaultValue: null,
+        },
+        familyName: DataTypes.STRING,
+        givenName: DataTypes.STRING,
+        gender: DataTypes.STRING,
+        locale: DataTypes.STRING,
+        picture: DataTypes.STRING,
         email: DataTypes.TEXT,
         weatherPos: {
             type: DataTypes.INTEGER,
@@ -23,4 +31,10 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: null
         }
     });
+    User.associate = function(models) {
+        User.hasMany(models.Task, {
+            onDelete: "cascade"
+        });
+    };
+    return User;
 };
