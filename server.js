@@ -58,10 +58,10 @@ if (process.env.NODE_ENV === "test") {
 //         );
 //     });
 // });
-db.sequelize.sync({force: true}).then(() => {
+// db.sequelize.sync({force: true}).then(() => {
     app.listen(PORT, function() {
         console.log("Server listening on " + PORT);
     });
-});
+
 
 module.exports = app;
