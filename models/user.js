@@ -1,6 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
     const User = sequelize.define("User", {
-        name: DataTypes.STRING,
+        authId: {
+            type: DataTypes.STRING,
+            defaultValue: null,
+        },
+        familyName: DataTypes.STRING,
+        givenName: DataTypes.STRING,
+        gender: DataTypes.STRING,
+        locale: DataTypes.STRING,
+        picture: DataTypes.STRING,
         email: DataTypes.TEXT,
         weatherPos: {
             type: DataTypes.INTEGER,
