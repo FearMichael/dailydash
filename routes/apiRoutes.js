@@ -3,7 +3,7 @@ const db = require("../models");
 const routes = require("express").Router();
 const passport = require("passport");
 const apiCalls = require("./apiCalls");
-const axios = require("axios");
+// const axios = require("axios");
 
 //Routes object
 
@@ -27,6 +27,8 @@ const axios = require("axios");
 //         res.json(dbExample);
 //     });
 // });
+
+
 
 //NEWS API
 
@@ -55,9 +57,24 @@ routes.get("/auth/google",
 //         // res.redirect("/authenticate");
 //     });
 
+//Finds or Creates user once logged in
 routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/", session: false }), function(req, res) {
-    console.log(`Body ${req.body}`);
-    console.log(`User ${req.user}`);
+    // console.log("---------------");
+    // console.log(req.user);
+    // console.log("---------------");
+    db.User.findOrCreate({
+        where: {authId: req.user.id},
+        defaults: {
+            familyName: req.user.name.familyName,
+            givenName: req.user.name.givenName,
+            picture: req.user.photos[0].value,
+            gender: req.user._json.gender,
+            locale: req.user._json.locale
+        }
+    })
+        .then(([dbObject, created]) => {
+            console.log(dbObject.get({plain: true}));
+        });
     res.redirect("/");
 });
 

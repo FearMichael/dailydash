@@ -1,4 +1,4 @@
-const db = require("../models");
+// const db = require("../models");
 const routes = require("express").Router();
 
 //HTML routes
