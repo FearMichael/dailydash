@@ -28,6 +28,8 @@ const axios = require("axios");
 //     });
 // });
 
+
+
 //NEWS API
 
 routes.get("/news", async function(req, res) {
@@ -55,9 +57,24 @@ routes.get("/auth/google",
 //         // res.redirect("/authenticate");
 //     });
 
+//Finds or Creates user once logged in
 routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/", session: false }), function(req, res) {
-    console.log(`Body ${req.body}`);
-    console.log(`User ${req.user}`);
+    // console.log("---------------");
+    // console.log(req.user);
+    // console.log("---------------");
+    db.User.findOrCreate({
+        where: {authId: req.user.id},
+        defaults: {
+            familyName: req.user.name.familyName,
+            givenName: req.user.name.givenName,
+            picture: req.user.photos[0].value,
+            gender: req.user._json.gender,
+            locale: req.user._json.locale
+        }
+    })
+        .then(([dbObject, created]) => {
+            console.log(dbObject.get({plain: true}));
+        });
     res.redirect("/");
 });
 

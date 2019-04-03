@@ -6,7 +6,7 @@ const apiRoutes = require("./routes/apiRoutes");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
-// var db = require("./models");
+var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -28,7 +28,6 @@ function(accessToken, refreshToken, profile, done) {
     // URLSearchParams.findOrCreate({googleId: profile.id}, function(err, user) {
     //     return done(err, user);
     // });
-    console.log(profile);
     return done(null, profile);
 }
 ));
@@ -41,7 +40,7 @@ app.set("view engine", "handlebars");
 app.use("/", htmlRoutes);
 app.use("/", apiRoutes);
 
-// var syncOptions = { force: false };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
@@ -59,9 +58,10 @@ if (process.env.NODE_ENV === "test") {
 //         );
 //     });
 // });
-
-app.listen(PORT, function() {
-    console.log("Server listening on " + PORT);
+db.sequelize.sync({force: true}).then(() => {
+    app.listen(PORT, function() {
+        console.log("Server listening on " + PORT);
+    });
 });
 
 module.exports = app;
