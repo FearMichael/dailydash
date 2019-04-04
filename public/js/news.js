@@ -38,4 +38,3 @@ $("#weather").on("click", function() {
         });
     });
 });
-
