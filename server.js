@@ -38,7 +38,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 app.use("/", htmlRoutes);
-app.use("/api", apiRoutes);
+app.use("/", apiRoutes);
 
 var syncOptions = { force: false };
 
@@ -58,10 +58,10 @@ if (process.env.NODE_ENV === "test") {
 //         );
 //     });
 // });
-db.sequelize.sync({force: true}).then(() => {
+// db.sequelize.sync({force: true}).then(() => {
     app.listen(PORT, function() {
         console.log("Server listening on " + PORT);
     });
-});
+// });
 
 module.exports = app;
