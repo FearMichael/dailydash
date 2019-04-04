@@ -28,7 +28,13 @@ const apiCalls = require("./apiCalls");
 //     });
 // });
 
-
+//add notes to database
+routes.post("/addnote", function(req, res) {
+    db.Task.create({text: req.body.text, completed: false},
+        {include: db.User}).then(function(data) {
+        res.send(data);
+    });
+});
 
 //NEWS API
 
@@ -39,9 +45,9 @@ routes.get("/news", async function(req, res) {
 
 //WEATHER API
 
-routes.get("/weather/:zip", async function(req, res) {
-    const weather = await apiCalls.weather(req.params.zip);
-    res.json(weather);
+routes.post("/weather", async function(req, res) {
+    const weather = await apiCalls.weather(req.body.zip);
+    res.json(weather.data);
 });
 
 //Authentication
