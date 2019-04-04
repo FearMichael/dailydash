@@ -4,7 +4,7 @@
       <img src="/images/Picture1.png" width="125px" height="62.50px" alt="">
     </a>
     <form class="form-inline">
-      <a class="btn btn-outline-success my-2 my-sm-0" href="/auth/google">Google Account Sign In</a>
+      <a class="btn btn-outline-success my-2 my-sm-0" id="signIn" href="/auth/google">Google Account Sign In</a>
     </form>
 </nav>
 <!--End Navigation-->
@@ -13,7 +13,7 @@
 <div class="row">
 <div class="card-group">
         <div class="card">
-          <img src="/images/weather.jpg" class="card-img-top" alt="...">
+          <img src="/images/weather.jpg" class="card-img-top weather-img" alt="...">
           <div class="card-body">
             <h3 class="card-title">Weather</h3>
             <input type=text class="weather_lookup" placeholder="city, zip, or place"><button id="weather"><i class="fas fa-search"></i></button>
@@ -24,17 +24,17 @@
         <div class="card">
           <img src="/images/news.jpg" class="card-img-top news" alt="...">
           <div class="card-body">
-            <h3 class="card-title">News</h3>
+            <h5 class="card-title">News</h5>
             <input type=text class="news_lookup" placeholder="Search"><button id="news"><i class="fas fa-search"></i></button>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text n">This card has supporting text below as a natural lead-in to additional content.</p>
           </div>
         </div>
 
         <div class="card">
-          <img src="/images/stocks.jpg" class="card-img-top" alt="...">
+          <img src="/images/stocks.jpg" class="card-img-top stocks-img" alt="...">
           <div class="card-body">
             <h3 class="card-title">Stocks</h3>
-            <input type=text class="quote_lookup" placeholder="Quote Lookup"><button><i class="fas fa-search"></i></button>
+            <input type=text class="quote_lookup" placeholder="Quote Lookup"><button id="stock"><i class="fas fa-search"></i></button>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
           </div>
         </div>
