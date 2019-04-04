@@ -47,7 +47,12 @@ routes.get("/news", async function(req, res) {
 
 routes.post("/weather", async function(req, res) {
     const weather = await apiCalls.weather(req.body.zip);
-    res.json(weather.data);
+    res.json(weather);
+});
+
+routes.post("/stocks", async function(req, res) {
+    const finance = await apiCalls.stocks(req.body.search);
+    res.json(finance);
 });
 
 //Authentication
