@@ -15,15 +15,20 @@ const apiCall = {
                 axios.get(weatherSearch).then(function(weatherInfo) {
                     resolve(weatherInfo.data);
                 });
+                // let currentWeather = `http://dataservice.accuweather.com/currentconditions/v1/${locationID}?apikey=${process.env.WEATHER}`;
+                // axios.get(currentWeather).then(function(curWeather) {
+                //     resolve(curWeather.data);
+                // });
             });
         });
     },
-
-    news: async () => {
-        let newsSearch = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS}`;
+    
+    news: async (topic) => {
+        let newsSearch = `https://newsapi.org/v2/everything?q=${topic}&apiKey=${process.env.NEWS}`;
         return new Promise(resolve => {
             axios.get(newsSearch).then(function(newsInfo) {
                 resolve(newsInfo.data);
+                console.log(newsInfo.data)
             });
         });
     },

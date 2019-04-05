@@ -50,8 +50,8 @@ routes.get("/gettasks", function(req, res) {
 
 //NEWS API
 
-routes.get("/news", async function(req, res) {
-    const news = await apiCalls.news();
+routes.post("/news", async function(req, res) {
+    const news = await apiCalls.news(req.body.news);
     res.json(news);
 });
 
@@ -82,9 +82,9 @@ routes.get("/auth/google",
 
 //Finds or Creates user once logged in
 routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/", session: false }), function(req, res) {
-    // console.log("---------------");
-    // console.log(req.user);
-    // console.log("---------------");
+    console.log("---------------");
+    console.log(req.user);
+    console.log("---------------");
     db.User.findOrCreate({
         where: {authId: req.user.id},
         defaults: {

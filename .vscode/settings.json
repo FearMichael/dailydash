@@ -1,9 +1,0 @@
-{
-    "workbench.panel.defaultLocation": "right",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-    "terminal.integrated.shellArgs.windows": [
-        "/K",
-        "C:\\cmder\\vendor\\init.bat"
-    ],
-    "workbench.colorTheme": "Visual Studio Dark"
-}
