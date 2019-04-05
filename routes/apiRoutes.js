@@ -29,11 +29,23 @@ const apiCalls = require("./apiCalls");
 // });
 
 //add notes to database
-routes.post("/addnote", function(req, res) {
-    db.Task.create({text: req.body.text, completed: false},
-        {include: db.User}).then(function(data) {
-        res.send(data);
+routes.post("/addtasks", function(req, res) {
+    console.log(req.body.user);
+    db.Task.create({
+        text: req.body.task,
+        completed: false,
+        User: {
+            authId: req.body.user
+        }
+    }, {
+        include: db.User
     });
+});
+
+//Get Tasks
+routes.get("/gettasks", function(req, res) {
+    console.log(req.body);
+    // db.Task.findAll({where})
 });
 
 //NEWS API
@@ -86,7 +98,12 @@ routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "
         .then(([dbObject, created]) => {
             console.log(dbObject.get({plain: true}));
         });
-    res.redirect("/");
+    // let clientStuff = Math.floor(Math.random()*100000+1) + req.user.id;
+    // res.send(clientStuff);
+    res.redirect("/users" + req.user.id);
+    // res.send(token);
+    // res.json({id: req.user.id});
+
 });
 
 module.exports = routes;

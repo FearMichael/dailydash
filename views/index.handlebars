@@ -4,7 +4,11 @@
       <img src="/images/Picture1.png" width="125px" height="62.50px" alt="">
     </a>
     <form class="form-inline">
+      {{#if user}}
+      <h2 id="user"data={{user.authId}}>Welcome, {{user.givenName}}!</h2>
+      {{else}}
       <a class="btn btn-outline-success my-2 my-sm-0" id="signIn" href="/auth/google">Google Account Sign In</a>
+    {{/if}}
     </form>
 </nav>
 <!--End Navigation-->
@@ -59,10 +63,12 @@
             <div class="card-body">
               <h3 class="card-title">Task List</h3>
               <form>
-                <span id="todo-item">...</span>
+                <input type="text" id="to-do" placeholder="Your task..."><button id="add-to-do" class="btn btn-info btn-sm mx-2">Add!</button>
               </form>
               <hr>
-              <div id="to-dos"></div>
+              <div id="to-dos">
+              
+              </div>
             </div>
           </div>
   </div>
