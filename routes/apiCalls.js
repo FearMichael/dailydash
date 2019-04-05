@@ -40,12 +40,7 @@ const apiCall = {
             .end(function (result) {
                 console.log(result.status, result.headers, result.body);
             });
-    },
-
-    calendar: () => {
-
     }
-
 };
 
 module.exports = apiCall;
