@@ -8,3 +8,18 @@ footer {
 footer a {
     color: #eeeeee;
 }
+
+.scroll {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.remove-margin {  
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.lookupBox::placeholder {
+    color: red;
+    opacity: 1;
+  }
