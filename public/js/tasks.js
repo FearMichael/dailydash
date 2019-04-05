@@ -40,7 +40,7 @@ $("#add-to-do").on("click", function(event) {
 
     // $("#to-do").val("");
 
-});
+})
 
 // $(document).on("click", ".checkbox", function() {
 
