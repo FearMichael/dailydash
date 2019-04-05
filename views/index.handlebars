@@ -4,7 +4,11 @@
       <img src="/images/Picture1.png" width="125px" height="62.50px" alt="">
     </a>
     <form class="form-inline">
+      {{#if user}}
+      <h2 id="user"data={{user.authId}}>Welcome, {{user.givenName}}!</h2>
+      {{else}}
       <a class="btn btn-outline-success my-2 my-sm-0" id="signIn" href="/auth/google">Google Account Sign In</a>
+    {{/if}}
     </form>
 </nav>
 <!--End Navigation-->

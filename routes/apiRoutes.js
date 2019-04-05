@@ -30,21 +30,28 @@ const apiCalls = require("./apiCalls");
 
 //add notes to database
 routes.post("/addtasks", function(req, res) {
-    db.Task.create({text: req.body.text, completed: false},
-        {include: db.User}).then(function(data) {
-        res.json(data);
+    console.log(req.body.user);
+    db.Task.create({
+        text: req.body.task,
+        completed: false,
+        User: {
+            authId: req.body.user
+        }
+    }, {
+        include: db.User
     });
 });
 
+//Get Tasks
 routes.get("/gettasks", function(req, res) {
-    db.Task.findAll({where})
+    console.log(req.body);
+    // db.Task.findAll({where})
 });
 
 //NEWS API
 
 routes.get("/news", async function(req, res) {
     const news = await apiCalls.news();
-    console.log(req.user);
     res.json(news);
 });
 

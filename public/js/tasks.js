@@ -1,3 +1,4 @@
+const user = $("#user").attr("data");
 
 function renderTodos(list) {
     $("#to-dos").empty();
@@ -23,39 +24,41 @@ $("#add-to-do").on("click", function(event) {
     event.preventDefault();
 
     var toDoTask = $("#to-do").val().trim();
-    $.post("/addtasks", toDoTask, function(task) {
+    $.post("/addtasks", {user: user, task: toDoTask}, function(task) {
         console.log(task);
     }).then(function() {
-        
+        $.get("/gettasks", function(taskData) {
+            renderTodos(taskData);
+        });
     });
 
-    list.push(toDoTask);
+    // list.push(toDoTask);
 
-    renderTodos(list);
+    // renderTodos(list);
 
-    localStorage.setItem("todolist"), JSON.stringify(list);
+    // localStorage.setItem("todolist"), JSON.stringify(list);
 
-    $("#to-do").val("");
-
-});
-
-$(document).on("click", ".checkbox", function() {
-
-    var toDoNumber = $(this).attr("data-to-do");
-
-    list.splice(toDoNumber, 1);
-
-    renderTodos(list);
-
-    localStorage.setItem("todolist", JSON.stringify(list));
+    // $("#to-do").val("");
 
 });
 
-var list = JSON.parse(localStorage.getItem("todolist"));
+// $(document).on("click", ".checkbox", function() {
+
+//     var toDoNumber = $(this).attr("data-to-do");
+
+//     list.splice(toDoNumber, 1);
+
+//     renderTodos(list);
+
+//     localStorage.setItem("todolist", JSON.stringify(list));
+
+// });
+
+// var list = JSON.parse(localStorage.getItem("todolist"));
 
 
-if (!Array.isArray(list)) {
-    list = [];
-}
+// if (!Array.isArray(list)) {
+//     list = [];
+// }
 
 renderTodos(list);
