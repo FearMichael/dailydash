@@ -44,6 +44,7 @@ $("#weather").on("click", function() {
                 ${elem.Temperature.Minimum.Value} ${elem.Temperature.Minimum.Unit}<br><hr>`);
         });
     });
+<<<<<<< HEAD
 });
 
 $("#stock").on("click", function() {
@@ -68,4 +69,6 @@ $(".mini").on("click", function() {
     $(".card-group").css("margin","0");
     $(".mini").hide();
     $(".expand").show();
+=======
+>>>>>>> 716dddac6fe7493b30122e8b20b2a441ae2a598c
 });

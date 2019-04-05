@@ -4,6 +4,15 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+$(document).ready(function() {
+    $.get("/", function(data) {
+        // if (req.user) {
+        //     console.log(" Logged in !");
+        // }
+    });
+});
+
+
 // The API object contains methods for each kind of request we'll make
 var API = {
     saveExample: function(example) {
