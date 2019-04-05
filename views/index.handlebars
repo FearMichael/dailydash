@@ -10,23 +10,25 @@
 <!--End Navigation-->
 
 <!--Card Row 1-->
-<div class="row">
-<div class="card-group">
+<div class="row remove-margin">
+<div class="card-group section-one">
         <div class="card">
           <img src="/images/weather.jpg" class="card-img-top weather-img" alt="...">
           <div class="card-body">
             <h3 class="card-title">Weather</h3>
-            <input type=text class="weather_lookup" placeholder="city, zip, or place"><button id="weather"><i class="fas fa-search"></i></button>
+            <input type="text" class="weather_lookup" placeholder="zip code"><button id="weather"><i class="fas fa-search"></i></button>
             <p id="weatherText" class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           </div>
         </div>
 
         <div class="card">
           <img src="/images/news.jpg" class="card-img-top news" alt="...">
+          <i class="fas fa-expand expand" align="right" alt="expand" style="padding: 10px 15px;"></i>
+          <i class="fas fa-compress mini" align="right" alt="expand" style="padding: 10px 15px;"></i>
           <div class="card-body">
-            <h5 class="card-title">News</h5>
-            <input type=text class="news_lookup" placeholder="Search"><button id="news"><i class="fas fa-search"></i></button>
-            <p class="card-text n">This card has supporting text below as a natural lead-in to additional content.</p>
+            <h3 class="card-title">News</h3>
+            <input type="text" class="news_lookup" placeholder="Search"><button id="news"><i class="fas fa-search"></i></button>
+            <p class="card-text n scroll">This card has supporting text below as a natural lead-in to additional content.</p>
           </div>
         </div>
 
@@ -35,7 +37,7 @@
           <div class="card-body">
             <h3 class="card-title">Stocks</h3>
             <input type=text class="quote_lookup" placeholder="Quote Lookup"><button id="stock"><i class="fas fa-search"></i></button>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            <p id="stockText" class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
           </div>
         </div>
 </div>
@@ -44,8 +46,8 @@
 <!--Card Row 1 End-->
 
 <!--Card Row 2-->
-<div class="row">
-    <div class="card-group">
+<div class="row remove-margin">
+    <div class="card-group section-two">
         <div class="card">
             <img src="/images/events1.jpg" class="card-img-top" alt="Events">
             <div class="card-body">

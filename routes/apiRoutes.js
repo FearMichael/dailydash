@@ -38,8 +38,8 @@ routes.post("/addnote", function(req, res) {
 
 //NEWS API
 
-routes.get("/news", async function(req, res) {
-    const news = await apiCalls.news();
+routes.post("/news", async function(req, res) {
+    const news = await apiCalls.news(req.body.news);
     res.json(news);
 });
 
