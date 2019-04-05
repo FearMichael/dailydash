@@ -70,9 +70,9 @@ routes.get("/auth/google",
 
 //Finds or Creates user once logged in
 routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/", session: false }), function(req, res) {
-    // console.log("---------------");
-    // console.log(req.user);
-    // console.log("---------------");
+    console.log("---------------");
+    console.log(req.user);
+    console.log("---------------");
     db.User.findOrCreate({
         where: {authId: req.user.id},
         defaults: {
