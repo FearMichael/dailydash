@@ -2,21 +2,20 @@
 function renderTodos(list) {
     $("#to-dos").empty();
 
-for (var i= 0; i < list.length; i++) {
-   
-    var toDoItem = $("<p>");
-    toDoItem.text(list[i]);
-}
+    for (var i= 0; i < list.length; i++) {  
+        var toDoItem = $("<p>");
+        toDoItem.text(list[i]);
+    }
 
-var toDoClose = $("<button>");
+    var toDoClose = $("<button>");
 
-toDoClose.attr("data-to-do", i);
-toDoClose.addClass("checkbox");
-toDoClose.text("");
+    toDoClose.attr("data-to-do", i);
+    toDoClose.addClass("checkbox");
+    toDoClose.text("");
 
-toDoItem = toDoItem.prepend(toDoClose);
+    toDoItem = toDoItem.prepend(toDoClose);
 
-$("#to-dos").append(toDoItem);
+    $("#to-dos").append(toDoItem);
 
 }
 
@@ -24,12 +23,17 @@ $("#add-to-do").on("click", function(event) {
     event.preventDefault();
 
     var toDoTask = $("#to-do").val().trim();
+    $.post("/addtasks", toDoTask, function(task) {
+        console.log(task);
+    }).then(function() {
+        
+    });
 
     list.push(toDoTask);
 
     renderTodos(list);
 
-    localStorage.setItem("todolist"), JSON.stringify(list));
+    localStorage.setItem("todolist"), JSON.stringify(list);
 
     $("#to-do").val("");
 

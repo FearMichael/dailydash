@@ -29,17 +29,22 @@ const apiCalls = require("./apiCalls");
 // });
 
 //add notes to database
-routes.post("/addnote", function(req, res) {
+routes.post("/addtasks", function(req, res) {
     db.Task.create({text: req.body.text, completed: false},
         {include: db.User}).then(function(data) {
-        res.send(data);
+        res.json(data);
     });
+});
+
+routes.get("/gettasks", function(req, res) {
+    db.Task.findAll({where})
 });
 
 //NEWS API
 
 routes.get("/news", async function(req, res) {
     const news = await apiCalls.news();
+    console.log(req.user);
     res.json(news);
 });
 
@@ -86,7 +91,12 @@ routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "
         .then(([dbObject, created]) => {
             console.log(dbObject.get({plain: true}));
         });
-    res.redirect("/");
+    // let clientStuff = Math.floor(Math.random()*100000+1) + req.user.id;
+    // res.send(clientStuff);
+    res.redirect("/users" + req.user.id);
+    // res.send(token);
+    // res.json({id: req.user.id});
+
 });
 
 module.exports = routes;
