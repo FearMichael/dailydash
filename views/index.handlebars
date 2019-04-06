@@ -18,30 +18,43 @@
 <div class="card-group section-one">
         <div class="card">
           <img src="/images/weather.jpg" class="card-img-top weather-img" alt="...">
+          <a name="weather"></a>
+          <a href="#weather" id="max" align="right">
+            <i class="fas fa-expand expand" align="right" alt="expand" style="padding: 10px 15px;"></i>
+          </a>
+          <i class="fas fa-compress mini" align="right" alt="expand" style="padding: 10px 15px;"></i>
           <div class="card-body">
             <h3 class="card-title">Weather</h3>
             <input type="text" class="weather_lookup" placeholder="zip code"><button id="weather"><i class="fas fa-search"></i></button>
-            <p id="weatherText" class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p id="weatherText" class="card-text">Get your <strong>5 Day Forcast</strong>!<br> Please enter zip code in the search bar above.</p>
           </div>
         </div>
 
         <div class="card">
           <img src="/images/news.jpg" class="card-img-top news" alt="...">
-          <i class="fas fa-expand expand" align="right" alt="expand" style="padding: 10px 15px;"></i>
+          <a name="news"></a>
+          <a href="#news" id="max" align="right">
+            <i class="fas fa-expand expand" align="right" alt="expand" style="padding: 10px 15px;"></i>
+          </a>
           <i class="fas fa-compress mini" align="right" alt="expand" style="padding: 10px 15px;"></i>
           <div class="card-body">
             <h3 class="card-title news-header">News</h3>
             <input type="text" class="news_lookup" placeholder="Search"><button id="news"><i class="fas fa-search"></i></button>
-            <p class="card-text n scroll">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text n scroll">Get breaking news headlines, and search for articles from over 30,000 news sources and blogs</p>
           </div>
         </div>
 
         <div class="card">
           <img src="/images/stocks.jpg" class="card-img-top stocks-img" alt="...">
+          <a name="stocks"></a>
+          <a href="#stocks" id="max" align="right">
+            <i class="fas fa-expand expand" align="right" alt="expand" style="padding: 10px 15px;"></i>
+          </a>
+          <i class="fas fa-compress mini" align="right" alt="expand" style="padding: 10px 15px;"></i>
           <div class="card-body">
             <h3 class="card-title">Stocks</h3>
             <input type=text class="quote_lookup" placeholder="Quote Lookup"><button id="stock"><i class="fas fa-search"></i></button>
-            <p id="stockText" class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            <p id="stockText" class="card-text">Check companies new and stock information.  Please enter the company stock ticker above.
           </div>
         </div>
 </div>
@@ -53,7 +66,7 @@
 <div class="row remove-margin">
     <div class="card-group section-two">
         <div class="card">
-            <img src="/images/events1.jpg" class="card-img-top" alt="Events">
+            <img src="/images/events1.jpg" class="card-img" alt="Events">
             <div class="card-body">
               <h3 class="card-title">Upcoming Events</h3>
               <p class="card-text">Party on Party People</p>
@@ -61,11 +74,11 @@
           </div>
   
           <div class="card">
-            <img src="/images/tast_list.jpg" class="card-img-top" alt="Tasks">
+            <img src="/images/tast_list.jpg" class="card-img" alt="Tasks">
             <div class="card-body">
               <h3 class="card-title">Task List</h3>
               <form>
-                <input type="text" id="to-do" placeholder="Your task..."><button id="add-to-do" class="btn btn-info btn-sm mx-2">Add!</button>
+                <input type="text" id="to-do" placeholder="Your task..."><button id="add-to-do"><i class="fas fa-plus"></i></button>
               </form>
               <hr>
               <div id="to-dos">
