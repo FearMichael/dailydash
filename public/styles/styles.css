@@ -25,6 +25,7 @@ footer a {
 
 input{
     margin-bottom: 2%;
+    padding-left: 2%;
 }
 #data-img {
     width: 100px;
@@ -38,4 +39,7 @@ input{
 }
 hr {
     clear: left;
+}
+.title {
+    margin-top: -5%;
 }
