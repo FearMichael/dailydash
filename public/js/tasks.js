@@ -43,7 +43,11 @@ $(document).on("click", ".toDoItem", function(event) {
     $("#deleteItem").text(`" ${deleteText} "`);
     $("#confirmDelete").modal("show");
 
-    $(":button").on("click", "#confirm", function(event) {
+    $(document).on("click", "#confirm", function(event) {
         console.log("deleted");
+        $.post("/deletetask", {id: selectedId} )
+        $(`.toDoItem[data=${selectedId}]`).remove();
+        // $(`h5[data=${selectedId}]`).remove()
+        $("#confirmDelete").modal("hide");
     });
 });
