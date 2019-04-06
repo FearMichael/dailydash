@@ -9,13 +9,17 @@ footer a {
     color: #eeeeee;
 }
 
+.logout {
+    display: inline-block;
+}
+
 .scroll {
     max-height: 100px;
     overflow-y: auto;
 }
 
 .toDoItem {
-    display: inline-block;
+    display: inline-flex;
 }
 
 .remove-margin {  

@@ -29,6 +29,13 @@ routes.post("/gettasks", function(req, res) {
     });
 });
 
+//Delete Tasks
+
+routes.post("/deletetask", function(req, res) {
+    console.log(req.body.id);
+    db.Task.destroy({where: {id: req.body.id}});
+});
+
 //NEWS API
 
 routes.post("/news", async function(req, res) {
@@ -45,8 +52,9 @@ routes.post("/weather", async function(req, res) {
 
 //STOCK API
 
-routes.post("/stock", async function(req, res) {
-    const finance = await apiCalls.stocks(req.body.search);
+routes.post("/stocks", async function(req, res) {
+    console.log(req.body);
+    const finance = await apiCalls.stocks(req.body.stock);
     res.json(finance);
 });
 
@@ -65,6 +73,7 @@ routes.get("/auth/google",
 
 //Finds or Creates user once logged in
 routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/", session: false }), function(req, res) {
+    console.log(req.user.id);
     db.User.findOrCreate({
         where: {authId: req.user.id},
         defaults: {
@@ -79,6 +88,11 @@ routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "
             console.log(dbObject.get({plain: true}));
         });
     res.redirect("/users" + req.user.id);
+});
+
+routes.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
 });
 
 module.exports = routes;

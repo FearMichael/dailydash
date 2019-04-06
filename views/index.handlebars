@@ -6,6 +6,7 @@
     <form class="form-inline">
       {{#if user}}
       <h2 id="user"data={{user.id}}>Welcome, {{user.givenName}}!</h2>
+      
       {{else}}
       <a class="btn btn-outline-success my-2 my-sm-0" id="signIn" href="/auth/google">Google Account Sign In</a>
     {{/if}}
@@ -53,7 +54,7 @@
           <i class="fas fa-compress mini" align="right" alt="expand" style="padding: 10px 15px;"></i>
           <div class="card-body">
             <h3 class="card-title">Stocks</h3>
-            <input type=text class="quote_lookup" placeholder="Quote Lookup"><button id="stock"><i class="fas fa-search"></i></button>
+            <input type="text" class="quote_lookup" placeholder="Quote Lookup"><button id="stock"><i class="fas fa-search"></i></button>
             <p id="stockText" class="card-text">Check companies new and stock information.  Please enter the company stock ticker above.
           </div>
         </div>
