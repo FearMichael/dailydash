@@ -10,6 +10,7 @@ Project 2
 - Bootstrap for UI
 - jQuery for DOM manipulation
 
+
 ### Future Improvements
 - Add more options for each tile/card (various weather or news sources for example)
 - Create a drag and drop style user interface that is saved to the user preferences
