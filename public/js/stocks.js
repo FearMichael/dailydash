@@ -4,7 +4,7 @@ $(document).ready(function() {
         $(".stock").hide();
         $("#stock").hide();
         // $(".card").css("display", "block");
-        $.get("/stock", function(data) {
+        $.get("/stocks", function(data) {
             addNews = $(".n");
             addNews.empty();
             $(".stock_lookup").hide();
@@ -20,7 +20,7 @@ console.log("Stocks reached");
 
 $("#stock").on("click", function() {
     let symbol = $("quote_lookup").val()
-    $.post("/stock", {stock: symbol}, function(stocks) {
+    $.post("/stocks", {stock: symbol}, function(stocks) {
         console.log(stocks);
         $("#stockInfo").empty();
 

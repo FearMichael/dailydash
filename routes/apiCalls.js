@@ -38,8 +38,9 @@ const apiCall = {
             .header("X-RapidAPI-Host", process.env.RAPIDAPI_HOST)
             .header("X-RapidAPI-Key", process.env.RAPIDAPI_KEY)
             .end(function (result) {
-                console.log(result.status, result.headers, result.body);
+                console.log(result.body);
                 console.log(result.data);
+                return result.data;
             });
     }
 };
