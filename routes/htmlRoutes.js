@@ -21,7 +21,7 @@ routes.get("/users:id", function(req, res) {
     db.User.findOne({authId: req.params.id}, {include: db.Task}, {plain: true}).then(info => {
         // console.log(info.get({plain: true}));
         let userInfo = info.get({plain: true});
-        console.log(userInfo);
+        // console.log(userInfo);
         res.render("index", {user: userInfo});
     });
 });
