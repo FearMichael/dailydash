@@ -15,10 +15,6 @@ const apiCall = {
                 axios.get(weatherSearch).then(function(weatherInfo) {
                     resolve(weatherInfo.data);
                 });
-                // let currentWeather = `http://dataservice.accuweather.com/currentconditions/v1/${locationID}?apikey=${process.env.WEATHER}`;
-                // axios.get(currentWeather).then(function(curWeather) {
-                //     resolve(curWeather.data);
-                // });
             });
         });
     },
@@ -28,7 +24,7 @@ const apiCall = {
         return new Promise(resolve => {
             axios.get(newsSearch).then(function(newsInfo) {
                 resolve(newsInfo.data);
-                console.log(newsInfo.data)
+                // console.log(newsInfo.data);
             });
         });
     },
