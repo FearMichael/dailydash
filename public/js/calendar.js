@@ -1,6 +1,6 @@
 
-var CLIENT_ID = process.env.CALUSER;
-var API_KEY = process.env.CALKEY;
+// var CLIENT_ID = process.env.CALUSER;
+// var API_KEY = process.env.CALKEY;
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -9,8 +9,8 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 // included, separated by spaces.
 var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
-var authorizeButton = document.getElementById("authorize_button");
-var signoutButton = document.getElementById("signout_button");
+var authorizeButton = document.getElementById("#signIn");
+var signoutButton = document.getElementById("#");
 
 /**
         *  On load, called to load the auth2 library and API client library.

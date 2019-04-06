@@ -7,45 +7,26 @@ const apiCalls = require("./apiCalls");
 
 //Routes object
 
-// Get all examples
-// routes.get("/api/examples", function(req, res) {
-//     db.Example.findAll({}).then(function(dbExamples) {
-//         res.json(dbExamples);
-//     });
-// });
-
-// // Create a new example
-// routes.post("/api/examples", function(req, res) {
-//     db.Example.create(req.body).then(function(dbExample) {
-//         res.json(dbExample);
-//     });
-// });
-
-// // Delete an example by id
-// routes.delete("/api/examples/:id", function(req, res) {
-//     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-//         res.json(dbExample);
-//     });
-// });
-
 //add notes to database
 routes.post("/addtasks", function(req, res) {
-    console.log(req.body.user);
     db.Task.create({
         text: req.body.task,
         completed: false,
-        User: {
-            authId: req.body.user
-        }
+        UserId: req.body.user
     }, {
         include: db.User
+    }).then(function() {
+        db.Task.findAll({where: {UserId: req.body.user}, raw: true}).then(function(allTasks) {
+            res.json(allTasks);
+        });
     });
 });
 
 //Get Tasks
-routes.get("/gettasks", function(req, res) {
-    console.log(req.body);
-    // db.Task.findAll({where})
+routes.post("/gettasks", function(req, res) {
+    db.Task.findAll({where: {UserId: req.body.user}, raw: true}).then(function(allTasks) {
+        res.json(allTasks);
+    });
 });
 
 //NEWS API
@@ -62,7 +43,9 @@ routes.post("/weather", async function(req, res) {
     res.json(weather);
 });
 
-routes.post("/stocks", async function(req, res) {
+//STOCK API
+
+routes.post("/stock", async function(req, res) {
     const finance = await apiCalls.stocks(req.body.search);
     res.json(finance);
 });
@@ -82,9 +65,6 @@ routes.get("/auth/google",
 
 //Finds or Creates user once logged in
 routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "/", session: false }), function(req, res) {
-    console.log("---------------");
-    console.log(req.user);
-    console.log("---------------");
     db.User.findOrCreate({
         where: {authId: req.user.id},
         defaults: {
@@ -98,12 +78,7 @@ routes.get("/authenticate", passport.authenticate("google", { failureRedirect: "
         .then(([dbObject, created]) => {
             console.log(dbObject.get({plain: true}));
         });
-    // let clientStuff = Math.floor(Math.random()*100000+1) + req.user.id;
-    // res.send(clientStuff);
     res.redirect("/users" + req.user.id);
-    // res.send(token);
-    // res.json({id: req.user.id});
-
 });
 
 module.exports = routes;

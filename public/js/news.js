@@ -84,6 +84,7 @@ $(".mini").on("click", function () {
     singleCard.removeClass("mb-3");
     $(".mini").hide();
     $(".expand").show();
+<<<<<<< HEAD
 });
 
 function IsValidZipCode(zip) {
@@ -92,3 +93,6 @@ function IsValidZipCode(zip) {
         $(".weather_lookup").attr("placeholder", "Zip Code").addClass("lookupBox");
     }
 }
+=======
+});
+>>>>>>> 69d55b03333bfc531c7ec930055b5dc9a4240bf6

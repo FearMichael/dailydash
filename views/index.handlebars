@@ -1,11 +1,11 @@
 <!--Navigation-->
 <nav class="navbar navbar-dark bg-dark text-white">
     <a class="navbar-brand" href="#">
-      <img src="/images/Picture1.png" width="125px" height="62.50px" alt="">
+      <img src="/images/Picture1.png" width="150px" height="75px" alt="">
     </a>
     <form class="form-inline">
       {{#if user}}
-      <h2 id="user"data={{user.authId}}>Welcome, {{user.givenName}}!</h2>
+      <h2 id="user"data={{user.id}}>Welcome, {{user.givenName}}!</h2>
       {{else}}
       <a class="btn btn-outline-success my-2 my-sm-0" id="signIn" href="/auth/google">Google Account Sign In</a>
     {{/if}}
@@ -89,6 +89,47 @@
   </div>
   </div>
 <!--Card Row 2 End-->
+
+{{!-- Modal for removing tasks --}}
+
+<div class="modal" id="confirmDelete" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Please Confirm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete <span id="deleteItem"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, cancel.</button>
+        <button type="button" id="confirm" class="btn btn-primary">Yes, all done!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="notification" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Oops!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Looks like you didn't fill out our friendly box. Pop a word in there and try again!</span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok!</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--Footer-->
 <footer>

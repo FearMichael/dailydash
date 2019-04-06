@@ -29,19 +29,15 @@ const apiCall = {
         });
     },
 
-    stocks: (search) => {
+    stocks: async (search) => {
         unirest.get(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=${search}`)
             .header("X-RapidAPI-Host", process.env.RAPIDAPI_HOST)
             .header("X-RapidAPI-Key", process.env.RAPIDAPI_KEY)
             .end(function (result) {
                 console.log(result.status, result.headers, result.body);
+                console.log(result.data);
             });
-    },
-
-    calendar: () => {
-
     }
-
 };
 
 module.exports = apiCall;
