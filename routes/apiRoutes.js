@@ -43,7 +43,9 @@ routes.post("/weather", async function(req, res) {
     res.json(weather);
 });
 
-routes.post("/stocks", async function(req, res) {
+//STOCK API
+
+routes.post("/stock", async function(req, res) {
     const finance = await apiCalls.stocks(req.body.search);
     res.json(finance);
 });
