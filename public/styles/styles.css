@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
+/* body {
+    min-height: 100%;
+} */
+
 footer {
     background-color: #424242;
     color: #eeeeee;
@@ -11,6 +15,31 @@ footer a {
 
 .logout {
     display: inline-block;
+}
+
+.navbar-brand {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.card {
+    border: none;
+}
+
+.card-img-top {
+    border-radius: 0;
+    /* width: 100%;
+    height: auto; */
+}
+
+.weathericons {
+    font-size: 1rem;
+}
+
+.card-img {
+    border-radius: 0;
+    /* width: 100%;
+    height: auto; */
 }
 
 .scroll {

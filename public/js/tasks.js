@@ -45,7 +45,7 @@ $(document).on("click", ".toDoItem", function(event) {
 
     $(document).on("click", "#confirm", function(event) {
         console.log("deleted");
-        $.post("/deletetask", {id: selectedId} )
+        $.post("/deletetask", {id: selectedId} );
         $(`.toDoItem[data=${selectedId}]`).remove();
         // $(`h5[data=${selectedId}]`).remove()
         $("#confirmDelete").modal("hide");
